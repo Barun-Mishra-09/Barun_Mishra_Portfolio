@@ -1,0 +1,530 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 33% 3%;
+    --foreground: 210 40% 98%;
+    --surface: 218 32% 6%;
+    --surface-elevated: 218 36% 10%;
+    --border: 217 33% 17%;
+    --blue-accent: 217 91% 60%;
+  }
+
+  * {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  body {
+    background-color: #080A0F;
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.04) 0%, transparent 60%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 100% 100%, 36px 36px, 36px 36px;
+    color: #F8FAFC;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+}
+
+/* Custom modern subtle scrollbar */
+html {
+  scrollbar-color: #2563EB #05070B;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05070B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2563EB;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3B82F6;
+}
+
+/* Subtle glow utility classes without over-saturation */
+.text-gradient-blue {
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #2563EB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-subtle {
+  background: linear-gradient(180deg, #FFFFFF 0%, #CBD5E1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-subtle {
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+.card-surface {
+  background-color: #0B0F16;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.card-surface:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* ==========================================================================
+   LIGHT MODE DESIGN SYSTEM
+   Activates ONLY when html has class 'light'.
+   Dark mode remains 100% untouched.
+   ========================================================================== */
+html.light {
+  color-scheme: light;
+}
+
+html.light body {
+  background-color: #FAFAFA !important;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px) !important;
+  background-size: 36px 36px, 36px 36px !important;
+  color: #111827 !important;
+}
+
+html.light {
+  scrollbar-color: #2563EB #F7F7F5;
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: #F7F7F5;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #2563EB;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #1D4ED8;
+}
+
+/* Page background & main container */
+html.light .min-h-screen,
+html.light main,
+html.light section {
+  background-color: transparent !important;
+}
+
+html.light [class*="bg-[#05070B]"],
+html.light [class*="bg-[#070A0F]"],
+html.light [class*="bg-[#07090E]"] {
+  background-color: #F7F7F5 !important;
+}
+
+/* Primary Card Surfaces */
+html.light [class*="bg-[#0B0F16]"],
+html.light [class*="bg-[#0B0F17]"],
+html.light [class*="bg-[#0A0D14]"],
+html.light [class*="bg-[#090D14]"] {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.03) !important;
+}
+
+/* Nested Preview & Elevated Surfaces */
+html.light [class*="bg-[#101722]"],
+html.light [class*="bg-[#0F1622]"],
+html.light [class*="bg-[#0E131D]"],
+html.light [class*="bg-[#0D131D]"],
+html.light [class*="bg-[#101824]"],
+html.light [class*="bg-[#141C2B]"],
+html.light [class*="bg-[#162030]"] {
+  background-color: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+}
+
+/* Specific Chat & Dialogue Bubbles in Light Mode */
+html.light [class*="bg-[#101824]"] {
+  background-color: #F1F5F9 !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+html.light [class*="bg-[#101824]"] p {
+  color: #0F172A !important;
+}
+html.light [class*="bg-[#101824]"] p[class*="text-slate-300"],
+html.light [class*="bg-[#101824]"] p[class*="text-slate-400"] {
+  color: #475569 !important;
+}
+
+/* AI Assistant Bubble in Light Mode (Crisp blue tint with dark readable text) */
+html.light [class*="bg-blue-600/10"] {
+  background-color: #EFF6FF !important;
+  border-color: #BFDBFE !important;
+  color: #0F172A !important;
+}
+html.light [class*="bg-blue-600/10"] p {
+  color: #0F172A !important;
+  font-weight: 450 !important;
+}
+html.light [class*="bg-blue-600/10"] p[class*="text-blue-400"],
+html.light [class*="bg-blue-600/10"] .text-blue-400 {
+  color: #1D4ED8 !important;
+  font-weight: 700 !important;
+}
+
+/* Event & Handover Cards in Dialogue Stream */
+html.light [class*="bg-[#141C2B]"] {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+html.light [class*="bg-[#141C2B]"] span {
+  color: #1E293B !important;
+}
+
+/* Hover States */
+html.light [class*="hover:bg-[#0E1420]"]:hover,
+html.light [class*="hover:bg-[#0E1420]"] {
+  border-color: #E2E8F0 !important;
+}
+
+html.light [class*="hover:bg-[#0E1420]"]:hover {
+  background-color: #F8FAFC !important;
+}
+
+html.light [class*="hover:border-white"]:hover {
+  border-color: #94A3B8 !important;
+}
+
+/* Borders */
+html.light [class*="border-white"] {
+  border-color: #E5E7EB !important;
+}
+
+/* Typography Overrides in Light Mode */
+html.light .text-white,
+html.light [class*="text-white"],
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6 {
+  color: #171717 !important;
+}
+
+html.light .text-slate-100 {
+  color: #0F172A !important;
+}
+
+html.light .text-slate-200 {
+  color: #1E293B !important;
+}
+
+html.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+html.light .text-slate-400 {
+  color: #475569 !important;
+}
+
+html.light .text-slate-500 {
+  color: #64748B !important;
+}
+
+html.light .text-blue-200,
+html.light .text-blue-300 {
+  color: #1D4ED8 !important;
+}
+
+html.light .text-gradient-subtle {
+  background: linear-gradient(180deg, #171717 0%, #475569 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Header & Navigation in Light Mode */
+html.light header {
+  background-color: rgba(247, 247, 245, 0.9) !important;
+  border-color: #E5E7EB !important;
+}
+
+html.light nav a {
+  color: #4B5563 !important;
+}
+
+html.light nav a:hover {
+  color: #171717 !important;
+  background-color: #F3F4F6 !important;
+}
+
+/* Badges & Monospace Tags */
+html.light [class*="bg-white/[0.04]"],
+html.light [class*="bg-white/5"],
+html.light [class*="bg-white/10"] {
+  background-color: #F1F5F9 !important;
+  border-color: #E2E8F0 !important;
+  color: #475569 !important;
+}
+
+/* Form Inputs, Textarea, Select */
+html.light input,
+html.light textarea,
+html.light select {
+  background-color: #FFFFFF !important;
+  color: #171717 !important;
+  border-color: #CBD5E1 !important;
+}
+
+html.light input:focus,
+html.light textarea:focus,
+html.light select:focus {
+  border-color: #2563EB !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* Outline Buttons */
+html.light button[class*="border-input"],
+html.light button[class*="border-white"],
+html.light button[class*="border-white/10"],
+html.light button[class*="border-white/15"] {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  color: #171717 !important;
+}
+
+html.light button[class*="border-input"]:hover,
+html.light button[class*="border-white"]:hover,
+html.light button[class*="border-white/10"]:hover {
+  background-color: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+}
+
+/* Keep primary solid blue buttons text white */
+html.light button.bg-blue-600,
+html.light button[class~="bg-blue-600"],
+html.light a[class~="bg-blue-600"],
+html.light button[class~="bg-primary"],
+html.light [class~="bg-primary"] {
+  color: #FFFFFF !important;
+}
+
+/* Active tab number badge: always white text on blue background */
+.active-step-badge,
+html.light .active-step-badge,
+html.light span.active-step-badge,
+html.light span.active-step-badge.text-white,
+html.light [class~="active-step-badge"] {
+  background-color: #2563EB !important;
+  color: #FFFFFF !important;
+}
+
+/* User Chat Bubble on Blue Background */
+.user-chat-bubble,
+html.light .user-chat-bubble,
+html.light .user-chat-bubble p,
+html.light [class~="user-chat-bubble"],
+html.light [class~="user-chat-bubble"] p {
+  color: #FFFFFF !important;
+  background-color: #2563EB !important;
+}
+
+/* Template Use Button Normal & Hover States */
+.template-use-btn,
+html.light .template-use-btn {
+  background-color: #FFFFFF !important;
+  color: #1E293B !important;
+  border-color: #CBD5E1 !important;
+}
+
+.template-use-btn:hover,
+html.light .template-use-btn:hover {
+  background-color: #2563EB !important;
+  color: #FFFFFF !important;
+  border-color: #2563EB !important;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  transition: all 0.2s ease !important;
+}
+
+html.light .theme-toggle-btn {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+}
+
+html.light .theme-toggle-btn:hover {
+  background-color: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+}
+
+html.light .theme-toggle-btn svg {
+  color: #2563EB !important;
+}
+
+html.light .theme-toggle-btn:hover svg {
+  color: #1D4ED8 !important;
+}
+
+html.dark .theme-toggle-btn {
+  background-color: #0B0F16 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html.dark .theme-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Scrollbar Utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html.light button.text-slate-800,
+html.light [class~="text-slate-800"] {
+  color: #1E293B !important;
+}
+
+/* Hero Auto-scored Box in Light Mode - Fresh, crisp blue tint (No muddy grey) */
+html.light .hero-autoscore-box,
+html.light [class*="bg-blue-950/30"] {
+  background-color: #EFF6FF !important;
+  border-color: #BFDBFE !important;
+}
+
+html.light .hero-autoscore-box .hero-autoscore-icon,
+html.light [class*="bg-blue-950/30"] svg {
+  color: #2563EB !important;
+}
+
+html.light .hero-autoscore-box .hero-autoscore-text,
+html.light [class*="bg-blue-950/30"] .hero-autoscore-text,
+html.light [class*="bg-blue-950/30"] span[class*="text-slate-300"] {
+  color: #1E3A8A !important;
+  font-weight: 600 !important;
+}
+
+html.light .hero-autoscore-box .hero-autoscore-badge,
+html.light [class*="bg-blue-950/30"] span[class*="bg-blue-500/10"] {
+  background-color: #DBEAFE !important;
+  color: #1D4ED8 !important;
+  border-color: #93C5FD !important;
+  font-weight: 600 !important;
+}
+
+html.light .hero-user-avatar {
+  background-color: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+  color: #475569 !important;
+}
+
+/* Blue & Emerald accent badges */
+html.light [class*="bg-blue-500/10"] {
+  background-color: #EFF6FF !important;
+  color: #2563EB !important;
+  border-color: #BFDBFE !important;
+}
+
+html.light [class*="text-blue-400"] {
+  color: #2563EB !important;
+}
+
+html.light [class*="text-emerald-400"] {
+  color: #059669 !important;
+}
+
+html.light [class*="bg-emerald-500/10"] {
+  background-color: #ECFDF5 !important;
+  color: #059669 !important;
+  border-color: #A7F3D0 !important;
+}
+
+/* Browser preview mock header dots */
+html.light [class*="bg-slate-700"] {
+  background-color: #CBD5E1 !important;
+}
+
+/* Dialog / Sheet in Light Mode */
+html.light [role="dialog"] {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  color: #171717 !important;
+}
+
+/* Subtle glow radial blur in light mode */
+html.light [class*="bg-blue-600/[0.08]"] {
+  background-color: rgba(37, 99, 235, 0.04) !important;
+}
+
+/* Footer */
+html.light footer {
+  background-color: #F7F7F5 !important;
+  border-color: #E5E7EB !important;
+}
+
+html.light footer a:hover,
+html.light footer button:hover,
+html.light footer a:hover span,
+html.light footer button:hover span {
+  color: #2563EB !important;
+}
+
+html.light footer a:hover svg,
+html.light footer button:hover svg {
+  color: #2563EB !important;
+}
+
+/* Select Trigger & Dropdown in Light Mode */
+html.light .select-trigger {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  color: #1E293B !important;
+}
+
+html.light .select-dropdown-content {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.08) !important;
+  color: #1E293B !important;
+}
+
+html.light .select-dropdown-item {
+  color: #334155 !important;
+}
+
+html.light .select-dropdown-item:hover,
+html.light .select-dropdown-item[data-highlighted],
+html.light .select-dropdown-item:focus {
+  background-color: #EFF6FF !important;
+  color: #1D4ED8 !important;
+}
+
+html.light .select-dropdown-item[data-state="checked"] {
+  background-color: #EFF6FF !important;
+  color: #2563EB !important;
+  font-weight: 600 !important;
+}
+
+html.light .select-dropdown-item svg {
+  color: #2563EB !important;
+}

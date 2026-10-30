@@ -1,0 +1,15 @@
+export const TECH_CAPABILITIES = [
+  { name: 'React', category: 'Frontend' },
+  { name: 'Next.js', category: 'Full-Stack' },
+  { name: 'JavaScript', category: 'Core' },
+  { name: 'TypeScript', category: 'Language' },
+  { name: 'Python', category: 'Backend/AI' },
+  { name: 'Node.js', category: 'Backend' },
+  { name: 'Express.js', category: 'Backend' },
+  { name: 'MySQL', category: 'Database' },
+  { name: 'MongoDB', category: 'Database' },
+  { name: 'REST APIs', category: 'Architecture' },
+  { name: 'AI Integrations', category: 'AI/LLM' },
+  { name: 'Socket.io', category: 'Real-Time' },
+  { name: 'Tailwind CSS', category: 'Styling' },
+]
