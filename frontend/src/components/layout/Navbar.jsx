@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Terminal, Menu, ArrowRight, Sun, Moon } from 'lucide-react'
+import { Menu, ArrowRight, Sun, Moon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { BrandLogo } from '@/components/ui/BrandLogo'
 import { useTheme } from '@/context/ThemeContext'
 import {
   Sheet,
@@ -63,16 +64,8 @@ export function Navbar() {
     >
       <div className="container mx-auto flex h-16 sm:h-20 items-center justify-between">
         
-        {/* Brand Logo / Left */}
-        <a
-          href="#"
-          className="flex items-center space-x-2 text-sm sm:text-base font-bold tracking-wider text-white hover:text-blue-400 transition-colors uppercase"
-        >
-          <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-600/20 border border-blue-500/30 text-blue-400">
-            <Terminal className="h-4 w-4" />
-          </span>
-          <span>Barun Mishra</span>
-        </a>
+        {/* Brand Logo / Left: Premium Animated BM Monogram + Wordmark */}
+        <BrandLogo size={22} animated={true} />
 
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
@@ -150,9 +143,10 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent side="right" className="flex flex-col justify-between pt-12">
               <SheetHeader className="mb-6">
-                <SheetTitle className="text-left font-bold tracking-wider text-white uppercase text-base flex items-center space-x-2">
-                  <Terminal className="h-4 w-4 text-blue-400" />
-                  <span>Barun Mishra</span>
+                <SheetTitle asChild className="text-left">
+                  <div>
+                    <BrandLogo size={22} animated={false} />
+                  </div>
                 </SheetTitle>
               </SheetHeader>
 

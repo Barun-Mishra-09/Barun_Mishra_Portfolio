@@ -1,5 +1,6 @@
 import React from 'react'
-import { Terminal, Mail, ArrowUp } from 'lucide-react'
+import { Mail, ArrowUp } from 'lucide-react'
+import { BrandLogo } from '@/components/ui/BrandLogo'
 
 function GithubIcon({ className = 'h-4 w-4' }) {
   return (
@@ -29,12 +30,7 @@ export function Footer() {
           
           {/* Brand Info */}
           <div className="md:col-span-2 space-y-3">
-            <div className="flex items-center space-x-2 text-white font-bold tracking-wider uppercase text-base">
-              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-600/20 border border-blue-500/30 text-blue-400">
-                <Terminal className="h-4 w-4" />
-              </span>
-              <span>Barun Mishra</span>
-            </div>
+            <BrandLogo size={22} animated={false} />
             <p className="text-xs font-semibold uppercase tracking-wider text-blue-400">
               Full-Stack Developer
             </p>

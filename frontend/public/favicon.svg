@@ -1,6 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="8" fill="#0B0F16"/>
-  <rect x="0.5" y="0.5" width="31" height="31" rx="7.5" stroke="#3B82F6" stroke-opacity="0.3"/>
-  <path d="M9 11L14 16L9 21" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <line x1="16" y1="21" x2="23" y2="21" stroke="#94A3B8" stroke-width="2.5" stroke-linecap="round"/>
+  <style>
+    :root {
+      --bg: #F7F7F5;
+      --border: #E5E7EB;
+      --stroke: #171717;
+      --accent: #2563EB;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0B0F16;
+        --border: rgba(37, 99, 235, 0.3);
+        --stroke: #F8FAFC;
+        --accent: #3B82F6;
+      }
+    }
+  </style>
+  <!-- Background Squircle with subtle border -->
+  <rect width="32" height="32" rx="7" fill="var(--bg)"/>
+  <rect x="0.5" y="0.5" width="31" height="31" rx="6.5" stroke="var(--border)" stroke-width="1"/>
+  
+  <!-- Centered Geometric BM Monogram -->
+  <g transform="translate(4.6, 4.6) scale(0.518)">
+    <!-- 1. Shared Left Spine -->
+    <line x1="10" y1="8" x2="10" y2="36" stroke="var(--stroke)" stroke-width="3.4" stroke-linecap="round"/>
+    
+    <!-- 2. B Upper Lobe -->
+    <path d="M 10 8 H 21 L 26.5 13.5 V 16.5 L 21 22" stroke="var(--stroke)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- 3. B Center Waist Line -->
+    <line x1="10" y1="22" x2="21" y2="22" stroke="var(--stroke)" stroke-width="3.4" stroke-linecap="round"/>
+    
+    <!-- 4. B Lower Lobe -->
+    <path d="M 21 22 L 27.5 28 V 30 L 21.5 36 H 10" stroke="var(--stroke)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- 5. M Integrated Chevron & Right Stem (Accentuated with Signature Blue) -->
+    <path d="M 10 8 L 21 22 L 30.5 8 L 36.5 14 V 36" stroke="var(--accent)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
 </svg>

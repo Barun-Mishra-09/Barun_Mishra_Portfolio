@@ -60,8 +60,8 @@ const contactLimiter = rateLimit({
   legacyHeaders: false,
 })
 
-// Health Check Endpoint
-app.get('/', (req, res) => {
+// Health Check Endpoints (both /api/health and /health)
+app.get(['/', '/health', '/api/health'], (req, res) => {
   res.status(200).json({
     success: true,
     message: '🚀 Barun Mishra Portfolio Backend API is running successfully!',
@@ -73,16 +73,9 @@ app.get('/', (req, res) => {
   })
 })
 
-app.get('/api/health', (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: 'Barun Mishra Portfolio API is running',
-    timestamp: new Date().toISOString(),
-  })
-})
-
-// Contact Endpoint with Rate Limiter
+// Contact Endpoint with Rate Limiter (handles both /api/contact and /contact)
 app.use('/api', contactLimiter, contactRouter)
+app.use('/', contactLimiter, contactRouter)
 
 // Error Handler Middleware
 app.use((err, req, res, next) => {
